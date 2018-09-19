@@ -1,6 +1,8 @@
 package com.example.websocketdemo.controller;
 
 import com.example.websocketdemo.model.ChatMessage;
+import com.example.websocketdemo.model.Info;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -26,6 +28,15 @@ public class ChatController {
         // Add username in web socket session
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         return chatMessage;
+    }
+
+    @MessageMapping("/chat.info/{info}")
+    @SendTo("/topic/info")
+    public Info systemInfo(@DestinationVariable("info") String info){
+        //System.out.println("info:"+info);
+        Info inf = new Info();
+        inf.setInformation(info);
+        return inf;
     }
 
 }
