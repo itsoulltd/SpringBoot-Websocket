@@ -1,4 +1,4 @@
-package com.example.websocketdemo.model;
+package com.example.lab.model;
 
 public class Info {
     private String information;

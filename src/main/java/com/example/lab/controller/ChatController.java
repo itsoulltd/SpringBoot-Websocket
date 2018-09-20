@@ -1,7 +1,7 @@
-package com.example.websocketdemo.controller;
+package com.example.lab.controller;
 
-import com.example.websocketdemo.model.ChatMessage;
-import com.example.websocketdemo.model.Info;
+import com.example.lab.model.ChatMessage;
+import com.example.lab.model.Info;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;

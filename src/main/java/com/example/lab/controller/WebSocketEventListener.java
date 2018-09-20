@@ -1,6 +1,6 @@
-package com.example.websocketdemo.controller;
+package com.example.lab.controller;
 
-import com.example.websocketdemo.model.ChatMessage;
+import com.example.lab.model.ChatMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
