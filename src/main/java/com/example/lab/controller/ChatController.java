@@ -10,6 +10,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -42,8 +43,14 @@ public class ChatController {
         return inf;
     }
 
+    /*
+    ** SimpMessagingTemplate has extended functionality than SimpMessageSendingOperations.
+     */
+//    @Autowired
+//    private SimpMessageSendingOperations messagingTemplate;
+
     @Autowired
-    private SimpMessageSendingOperations messagingTemplate;
+    private SimpMessagingTemplate messagingTemplate;
 
     @MessageMapping("/chat.condition")
     public void conditionalMessage(@Payload Condition condition){
