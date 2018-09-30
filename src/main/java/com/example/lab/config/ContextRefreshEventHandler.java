@@ -1,5 +1,7 @@
 package com.example.lab.config;
 
+import com.itsoul.lab.client.GeoTracker;
+import com.itsoul.lab.client.WebResource;
 import com.itsoul.lab.interactor.factory.Interactors;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -13,12 +15,8 @@ public class ContextRefreshEventHandler {
 
     @EventListener({ContextRefreshedEvent.class})
     public void contextRefreshed(){
-        Interactors.loadProperties(ResourceBundle.getBundle("application"));
-        try {
-            System.out.println("ContextRefreshedEvent:" + Interactors.getWebResource(Interactors.WebResource.API_GATEWAY));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        GeoTracker.shared().loadProperties(ResourceBundle.getBundle("application"));
+        System.out.println("ContextRefreshedEvent:" + WebResource.API_GATEWAY.value());
     }
 
 }
